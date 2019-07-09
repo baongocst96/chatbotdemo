@@ -1,9 +1,74 @@
 intents:
+  - request_hottel:
+      use_entities: false
+  - chitchat:
+      use_entities: false
+  - request_vitri:
+      use_entities: false
+  - request_thongtin:
+      use_entities: false
+  - deny
+  - affirm
+  - thankyou
   - greet
   - request_chung
-  - request_vitri
-  - request_thongtin
+  - request_restaurant:
+      use_entities: false
+  - inform 
+  - stop
   - goodbye
+  - update_hottel
+
+entities:
+  - lc_hottel
+  - num_room
+  - qu_hottel
+  - deny
+  - effirm
+  - cuisine
+  - feedback
+  - num_people
+  - seating
+  - vi_tri
+  - thong_tin
+
+slots:
+  vi_tri:
+    type: text
+  thong_tin:
+    type: text
+  tt_vitri:
+    type: text
+  tt_thongtin:
+    type:  text
+  lc_hottel:
+    type: unfeaturized
+    auto_fill: false
+  num_room:
+    type: unfeaturized
+    auto_fill: false  
+  qu_hottel:
+    type: unfeaturized
+    auto_fill: false
+  requested_slot:
+    type: unfeaturized
+  sure:
+    type: unfeaturized
+  cuisine:
+    auto_fill: false
+    type: unfeaturized
+  feedback:
+    auto_fill: false
+    type: unfeaturized
+  num_people:
+    auto_fill: false
+    type: unfeaturized
+  outdoor_seating:
+    auto_fill: false
+    type: unfeaturized
+  preferences:
+    auto_fill: false
+    type: unfeaturized  
 
 actions:
 - utter_slots_values_ht
@@ -21,6 +86,10 @@ actions:
 - utter_vitri
 - utter_thongtin
 - utter_bye
+
+forms:
+  - hottel_form
+  - restaurant_form
 
 templates:
   utter_ask_lc_hottel:
