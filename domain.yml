@@ -1,0 +1,164 @@
+intents:
+  - request_hottel:
+      use_entities: false
+  - chitchat:
+      use_entities: false
+  - request_vitri:
+      use_entities: false
+  - request_thongtin:
+      use_entities: false
+  - deny
+  - affirm
+  - thankyou
+  - greet
+  - request_chung
+  - request_restaurant:
+      use_entities: false
+  - inform 
+  - stop
+  - goodbye
+  - update_hottel
+
+entities:
+  - lc_hottel
+  - num_room
+  - qu_hottel
+  - deny
+  - effirm
+  - cuisine
+  - feedback
+  - num_people
+  - seating
+  - vi_tri
+  - thong_tin
+
+slots:
+  vi_tri:
+    type: text
+  thong_tin:
+    type: text
+  tt_vitri:
+    type: text
+  tt_thongtin:
+    type:  text
+  lc_hottel:
+    type: unfeaturized
+    auto_fill: false
+  num_room:
+    type: unfeaturized
+    auto_fill: false  
+  qu_hottel:
+    type: unfeaturized
+    auto_fill: false
+  requested_slot:
+    type: unfeaturized
+  sure:
+    type: unfeaturized
+  cuisine:
+    auto_fill: false
+    type: unfeaturized
+  feedback:
+    auto_fill: false
+    type: unfeaturized
+  num_people:
+    auto_fill: false
+    type: unfeaturized
+  outdoor_seating:
+    auto_fill: false
+    type: unfeaturized
+  preferences:
+    auto_fill: false
+    type: unfeaturized  
+
+templates:
+  utter_ask_lc_hottel:
+    - text: "Bạn cần KS ở khu vực nào ?"
+  utter_ask_num_room:
+    - text: "Ok,bạn cần bao nhiêu phòng?"
+  utter_ask_qu_hottel:
+  - text: "Bạn cần một khách sạn như thế nào? /n (giá rẻ, tốt, thoáng mát, chất lượng....)"
+  utter_submit:
+    - text: "Xong rồi đó!!"
+  utter_slots_values_ht:
+    - text: "Có phải bạn đang tìm một khách sạn {qu_hottel} gồm {num_room} phòng ở {lc_hottel} ?"  
+  utter_ask_continue:
+    - text: "Bạn có cần giúp đỡ gì nữa không ?"
+  utter_wrong_lc_hottel:
+    - text: "không tìm thấy khách sạn ở vị trí này, mời nhập lại!"
+  utter_wrong_num_room:
+    - text: "số phòng không hợp lệ"  
+  utter_greet:
+    - text: "xin chào, bạn cần tôi giúp gì?"
+  utter_chitchat:
+    - text: "chit chat"
+  utter_noworries:
+    - text: "ok, tạm biệt"
+  utter_search_hottel:
+    - text: "{sqlht}"
+  utter_slots_values:
+  - text: "Tôi chuẩn bị đặt chỗ cho bạn dựa vào các thông số sau:\n - Đồ ăn: {cuisine}\n\
+      \ - Số người: {num_people}\n - Ngồi ở ngoài: {outdoor_seating}\n - Yêu cầu thêm:\
+      \ {preferences}\n - Phản hồi: {feedback}"
+  utter_ask_cuisine:
+    - text: "Bạn muốn ăn đồ ăn nào? ^^"
+  utter_ask_feedback:
+    - text: "Cho tôi xin chút review của bạn đi :)"
+  utter_ask_num_people:
+  - text: " Bao nhiêu người vậy? ^^"
+  utter_ask_outdoor_seating:
+  - text: " Bạn có muốn ngồi ở ngoài không? ^^"
+  utter_ask_preferences:
+  - text: " Cho mình xin thêm ít thông tin nữa nha!!!"
+  utter_wrong_cuisine:
+  - text: " Đồ ăn bạn chọn không có trong dữ liệu, chọn các khác nha!!!"
+  utter_wrong_num_people:
+  - text: " Số người phải là số nguyên dương, làm ơn thử lại!!!"
+  utter_wrong_outdoor_seating:
+  - text: " Làm ơn xác nhận là 'ở trong' hay 'ở ngoài' giúp bot nha!!!"
+  utter_chung:
+  - text: "Đến tới Cần Thơ thì bạn không thể bỏ qua các địa điểm như Bến Ninh Kiều, Chùa Ông, Chợ Đêm, nhà cổ Bình Thủy, Vườn cây Mỹ Khánh, Thiền Viện Trúc Lâm"
+  utter_vitri:
+  - text: "Vị Trí {vi_tri}: \n{tt_vitri}"
+  utter_no_vitri:
+  - text: "Bot không biết !"
+  utter_thongtin:
+  - text: "Thông tin {thong_tin}: \n{tt_thongtin}"
+  utter_no_thongtin:
+  - text: "Bot không biết !"
+  utter_bye:
+  - text: "Bye !"
+  utter_test:
+  - text: "queryDB : {test}"
+  utter_update_ht:
+  - text: "thay đổi thành công ^^"
+
+actions:
+  - utter_slots_values_ht
+  - utter_noworries  
+  - utter_ask_continue
+  - utter_greet
+  - utter_chitchat
+  - action_chat_restart
+  - action_search_hottel
+  - action_yes_sure
+  - action_no_sure 
+  - action_restart
+  - utter_slots_values
+  - utter_chung
+  - utter_vitri
+  - utter_thongtin
+  - utter_bye
+  - action_vitri
+  - action_thongtin
+  - utter_no_vitri
+  - utter_no_thongtin
+  - action_test
+  - action_update_ht
+  - utter_update_ht
+  - action_update_room
+  - action_update_quaht
+
+forms:
+  - hottel_form
+  - restaurant_form
+

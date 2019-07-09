@@ -1,0 +1,4 @@
+bu?n thu th?p t? khóa ngu?i dùng nh?p train
+vi?t l?i stooory
+rasa run -m models --endpoints endpoints.yml
+rasa run -m models --enable-api --cors "*" --debug
