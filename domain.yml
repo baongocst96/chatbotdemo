@@ -91,6 +91,9 @@ forms:
   - hottel_form
   - restaurant_form
 
+policies:
+  - name: "FormPolicy"
+
 templates:
   utter_ask_lc_hottel:
     - text: "Bạn cần KS ở khu vực nào ?"

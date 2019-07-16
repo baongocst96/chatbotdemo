@@ -5,7 +5,7 @@ from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet, Restarted, AllSlotsReset
-import mysql.connector
+# import mysql.connector
 
 
 
@@ -365,30 +365,30 @@ class ViTri(Action):
             dispatcher.utter_template("utter_no_thongtin", tracker)
         return []
 
-class ActionTestDB(Action):
-    def name(self)-> Text:
-        return "action_test"
+# class ActionTestDB(Action):
+#     def name(self)-> Text:
+#         return "action_test"
 
-    def run(self,
-       dispatcher: CollectingDispatcher,
-       tracker: Tracker,
-       domain: Dict[Text, Any]
-    ) -> List[Dict[Text, Any]]:      
+#     def run(self,
+#        dispatcher: CollectingDispatcher,
+#        tracker: Tracker,
+#        domain: Dict[Text, Any]
+#     ) -> List[Dict[Text, Any]]:      
     
-        mydb = mysql.connector.connect(
-           host="localhost",
-           user="root",
-           passwd="abcd1234",
-           database="rasa",
-           auth_plugin='mysql_native_password'
-         )
-        sqlht = 'select name from chatbot'
-        mycursor = mydb.cursor()
-        mycursor.execute(sqlht)
-        myresult = mycursor.fetchall()  
-        for x in myresult:
-            dispatcher.utter_template("utter_test", tracker, test=x)
-        return[]
+#         mydb = mysql.connector.connect(
+#            host="localhost",
+#            user="root",
+#            passwd="abcd1234",
+#            database="rasa",
+#            auth_plugin='mysql_native_password'
+#          )
+#         sqlht = 'select name from chatbot'
+#         mycursor = mydb.cursor()
+#         mycursor.execute(sqlht)
+#         myresult = mycursor.fetchall()  
+#         for x in myresult:
+#             dispatcher.utter_template("utter_test", tracker, test=x)
+#         return[]
 
 class ActionUpdateLC(Action):
     def name(self)-> Text:
